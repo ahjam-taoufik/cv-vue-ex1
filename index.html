@@ -9,8 +9,8 @@
   <body>
     <div id="my-app">
       <p>Compteur :{{compteur}}</p>
-      <button v-on:click="compteur++">increment</button>
-      <button v-on:click="compteur--">decrement</button>
+      <button v-on:click="increment">increment</button>
+      <button v-on:click="decrement">decrement</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -20,6 +20,15 @@
         data: {
           compteur: 0,
         },
+        methods:{
+            increment: function() {
+                this.compteur++;
+            },
+            decrement: function() {
+                this.compteur--;
+            },
+
+        }
       });
     </script>
   </body>
