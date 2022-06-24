@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="my-app">
-
-       <a :href="URLgoogle">google site</a>
-        <img v-bind:src="URLImg" alt="">
+      <p>Compteur :{{compteur}}</p>
+      <button v-on:click="compteur++">increment</button>
+      <button v-on:click="compteur--">decrement</button>
     </div>
-   
-        
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
-        new Vue({
-            el :'#my-app',
-            data:{
-                URLgoogle:'https://www.google.com/?hl=fr',
-                URLImg:'https://images.unsplash.com/photo-1655667995118-56d57c6f628e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=714&q=80'
-            },
-           
-
-        })
-
-
+      new Vue({
+        el: '#my-app',
+        data: {
+          compteur: 0,
+        },
+      });
     </script>
-</body>
+  </body>
 </html>
