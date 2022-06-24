@@ -9,9 +9,9 @@
   <body>
 
     <div id="my-app">
-        <p v-on:click="cliqueMe">
-            <button v-on:click.stop="cliqueMe">clique me</button>
-        </p>
+         <form v-on:submit.prevent="handleSubmit">
+           <button type="submit">clique</button>
+         </form>
 
     </div>
 
@@ -23,7 +23,7 @@
 
         },
         methods:{
-            cliqueMe:function(){
+            handleSubmit:function(){
                console.log('clique')
             }
 
