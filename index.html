@@ -9,10 +9,8 @@
 <body>
     <div id="my-app">
 
-        <p>{{txt}} </p>
-        <p>{{presentation()}}</p>
-        <p>{{afficheTxt()}}</p>
-        <p>{{sum(1,3)}}</p>
+       <a :href="URLgoogle">google site</a>
+        <img v-bind:src="URLImg" alt="">
     </div>
    
         
@@ -21,19 +19,10 @@
         new Vue({
             el :'#my-app',
             data:{
-                txt:"salam depuis txt"
+                URLgoogle:'https://www.google.com/?hl=fr',
+                URLImg:'https://images.unsplash.com/photo-1655667995118-56d57c6f628e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=714&q=80'
             },
-            methods:{
-                presentation: function(){
-                    return 'salam depuis func';
-                },
-                afficheTxt: function(){
-                    return this.txt
-                },
-                sum:function(a,b){
-                    return a+b;
-                }
-            }
+           
 
         })
 
