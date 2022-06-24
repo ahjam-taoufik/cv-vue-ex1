@@ -7,8 +7,11 @@
     <title>Document</title>
   </head>
   <body>
+
     <div id="my-app">
-       <button v-on:click.once="cliqueMe">clique me</button>
+        <p v-on:click="cliqueMe">
+            <button v-on:click.stop="cliqueMe">clique me</button>
+        </p>
 
     </div>
 
