@@ -5,18 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            border:1px solid #333
+        }
+        .red{
+            background:red
+        }
+    </style>
   </head>
   <body>
     <div id="my-app">
-      <button v-on:click="compteurA--">decrementA -</button>
-      <button v-on:click="compteurA++">incrementA +</button>
-      <p>{{compteurA}}</p>
-      <p>{{checkValue()}}</p>
-      <p>{{checkValueMemo}}</p>
-      <hr />
-      <button v-on:click="compteurB--">decrementB -</button>
-      <button v-on:click="compteurB++">incrementB +</button>
-      <p>{{compteurB}}</p>
+        
+          <!-- <button v-on:click="toggle=!toggle">clique</button> -->
+          <!-- <button @click="toggle=!toggle">clique</button> -->
+          <button @click="toggleColor">clique</button>
+         
+         <p class="box"  v-bind:class="{red:toggle}"></p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -24,41 +31,17 @@
       new Vue({
         el: '#my-app',
         data: {
-          compteurA: 0,
-          compteurB: 0,
+           toggle:true
         },
-        methods: {
-          checkValue: function () {
-            console.log('from Method : change value of A');
-            return this.compteurA > 10 ? 'high than 10' : 'lower than 10';
-          },
-        },
-        computed:{
-
-            checkValueMemo: function () {
-              console.log('from Memo : change value of A');
-              return this.compteurA > 10 ? 'high than 10' : 'lower than 10';
-            },
-
-        },
-        watch:{
-          
-             //computerA same name of variable in data  
-            compteurB:function(){ 
-                //first method
-                // setTimeout(()=>{
-                    //      this.compteurB=0
-                    //   },2000) 
-                    
-                    //second method
-                ctx=this
-                setTimeout(function(){
-                    ctx.compteurB=0
-                },2000)
-
-
+        methods:{
+            toggleColor:function(){
+                console.log('toggle color')
+                this.toggle=!this.toggle
             }
         }
+      
+       
+      
       });
     </script>
   </body>
