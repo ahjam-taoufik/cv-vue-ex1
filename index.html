@@ -9,9 +9,11 @@
   <body>
 
     <div id="my-app">
-         <form v-on:submit="handleSubmit">
-           <button type="submit">clique</button>
-         </form>
+        
+          <input type="text" v-on:keyup.enter="func">
+          <!--other modifiers : .enter .tab .delete (fonctionne pour les touches « Suppression » et « Retour arrière »)
+                .esc .space .up .down .left .right -->
+      
 
     </div>
 
@@ -23,9 +25,9 @@
 
         },
         methods:{
-            handleSubmit:function(e){
-               console.log('clique')
-               e.preventDefault();
+            func:function(){
+               console.log('you are clicked in Enter')
+              
             }
 
 
