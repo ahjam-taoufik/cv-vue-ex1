@@ -7,13 +7,16 @@
     <title>Document</title>
   </head>
   <body>
-
     <div id="my-app">
-        
-        
-        <!--  <p>{{htmlbrut}}</p>   affiche <p>ce ci est html</p> -->
-          <p v-html="htmlbrut">{{htmlbrut}}</p>
-
+      <button v-on:click="compteurA--">decrementA -</button>
+      <button v-on:click="compteurA++">incrementA +</button>
+      <p>{{compteurA}}</p>
+      <p>{{checkValue()}}</p>
+      <p>{{checkValueMemo}}</p>
+      <hr />
+      <button v-on:click="compteurB--">decrementB -</button>
+      <button v-on:click="compteurB++">incrementB +</button>
+      <p>{{compteurB}}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -21,13 +24,23 @@
       new Vue({
         el: '#my-app',
         data: {
-          htmlbrut:'<p>ce ci est html</p>'
+          compteurA: 0,
+          compteurB: 0,
         },
-        methods:{
-           
+        methods: {
+          checkValue: function () {
+            console.log('from Method : change value of A');
+            return this.compteurA > 10 ? 'high than 10' : 'lower than 10';
+          },
+        },
+        computed:{
 
-           }
-        
+            checkValueMemo: function () {
+              console.log('from Memo : change value of A');
+              return this.compteurA > 10 ? 'high than 10' : 'lower than 10';
+            },
+
+        }
       });
     </script>
   </body>
