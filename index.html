@@ -10,10 +10,9 @@
 
     <div id="my-app">
         
-          <input type="text" v-on:keyup.enter="func">
-          <!--other modifiers : .enter .tab .delete (fonctionne pour les touches « Suppression » et « Retour arrière »)
-                .esc .space .up .down .left .right -->
-      
+          <input type="text" v-model="valeur">
+          <p>{{valeur}} </p>
+
 
     </div>
 
@@ -22,14 +21,10 @@
       new Vue({
         el: '#my-app',
         data: {
-
+          valeur:''
         },
         methods:{
-            func:function(){
-               console.log('you are clicked in Enter')
-              
-            }
-
+           
 
            }
         
