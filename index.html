@@ -45,7 +45,18 @@
           
              //computerA same name of variable in data  
             compteurB:function(){ 
-                console.log('from watch : the compteurB is modified')
+                //first method
+                // setTimeout(()=>{
+                    //      this.compteurB=0
+                    //   },2000) 
+                    
+                    //second method
+                ctx=this
+                setTimeout(function(){
+                    ctx.compteurB=0
+                },2000)
+
+
             }
         }
       });
