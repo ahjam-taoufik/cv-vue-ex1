@@ -40,6 +40,13 @@
               return this.compteurA > 10 ? 'high than 10' : 'lower than 10';
             },
 
+        },
+        watch:{
+          
+             //computerA same name of variable in data  
+            compteurB:function(){ 
+                console.log('from watch : the compteurB is modified')
+            }
         }
       });
     </script>
