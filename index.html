@@ -10,9 +10,9 @@
 
     <div id="my-app">
         
-          <input type="text" v-model="valeur">
-          <p>{{valeur}} </p>
-
+        
+        <!--  <p>{{htmlbrut}}</p>   affiche <p>ce ci est html</p> -->
+          <p v-html="htmlbrut">{{htmlbrut}}</p>
 
     </div>
 
@@ -21,7 +21,7 @@
       new Vue({
         el: '#my-app',
         data: {
-          valeur:''
+          htmlbrut:'<p>ce ci est html</p>'
         },
         methods:{
            
