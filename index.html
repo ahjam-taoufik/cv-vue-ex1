@@ -10,7 +10,7 @@
   <body>
     <div id="my-app">
        <ul>
-          <li v-for="(item,index) in items">{{index}} - {{item}} </li>
+          <li v-for="(val,key) in items">{{key}} : {{val}} </li>
        </ul>
     
     </div>
@@ -19,7 +19,11 @@
       new Vue({
         el: '#my-app',
         data: {
-          items:["ahmed","ali",'kamal','salam']
+          items:{
+            name:'ali',
+            age:'38',
+            genre:'male'
+          }
           
         },
        
