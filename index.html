@@ -9,14 +9,9 @@
   </head>
   <body>
     <div id="my-app">
-      <button v-on:click="toggle=!toggle">clique</button>
-      <p>{{toggle}}</p>
-      <template v-if="toggle">
-        <p>Lorem ipsum dolor sit amet c Illo, repudiandae. </p>
-        <p>Lorem ipsum dolor sit amet c Illo, repudiandae. </p>
-        <p>Lorem ipsum dolor sit amet c Illo, repudiandae. </p>
-       </template>
-
+       <ul>
+          <li v-for="item in items">{{item}} </li>
+       </ul>
     
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -24,7 +19,7 @@
       new Vue({
         el: '#my-app',
         data: {
-          toggle:true
+          items:[1,2,3,'salam']
            
         },
        
