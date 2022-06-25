@@ -12,6 +12,7 @@
     </div>
     <div id="my-app2">
         <h2>{{txt}}</h2> 
+        <button v-on:click="func">clique in ins2</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -29,6 +30,11 @@
         data: {
             txt:'salam alikoum depuis ins2'
         },
+        methods:{
+            func:function(){
+                ins1.txt="changement d'etat "
+            }
+        }
       });
 
     </script>
