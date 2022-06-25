@@ -9,16 +9,13 @@
   </head>
   <body>
     <div id="my-app">
-
-        <button v-on:click="computer++" >increment +</button>
-        <button v-on:click="computer--" >decrement -</button>
-        <p>{{computer}} </p>
-
-        <p v-if="computer === 3" >valeur est 3 </p>
-        <p v-else-if="computer === 6" >valeur est 6</p>
-        <p v-else-if="computer === 9" >valeur est 9</p>
-        <p v-else >aucune condition</p>
-      
+      <button v-on:click="toggle=!toggle">clique</button>
+      <p>{{toggle}}</p>
+      <template v-if="toggle">
+        <p>Lorem ipsum dolor sit amet c Illo, repudiandae. </p>
+        <p>Lorem ipsum dolor sit amet c Illo, repudiandae. </p>
+        <p>Lorem ipsum dolor sit amet c Illo, repudiandae. </p>
+       </template>
 
     
     </div>
@@ -27,7 +24,7 @@
       new Vue({
         el: '#my-app',
         data: {
-          computer:0
+          toggle:true
            
         },
        
