@@ -7,25 +7,34 @@
     <title>Document</title>
   </head>
   <body>
-
-    <div id="my-app">
-
+    <div id="my-app1">
+      <h2>{{txt}}</h2>
+      <mon-component></mon-component>
+      <mon-component></mon-component>
     </div>
- 
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
-
-     const ins1= new Vue({
-        template: '<h1>{{txt}}</h1>',
-        data: {
-            txt:'salam alikoum depuis ins1'
+      Vue.component('mon-component', {
+        template: `<p>taoufik ahjam {{nom}} <button
+                    v-on:click="func">change</button> </p>`,
+        data: function () {
+          return { nom: true };
         },
-
+        methods:{
+            func:function(){
+                this.nom=!this.nom
+            }
+        }
       });
-      ins1.$mount();
-      document.getElementById('my-app').appendChild(ins1.$el)
 
+
+      const ins1 = new Vue({
+        el: '#my-app1',
+        data: {
+          txt: 'salam alikoum depuis ins1',
+        },
+      });
     </script>
   </body>
 </html>
