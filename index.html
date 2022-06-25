@@ -25,9 +25,10 @@
   </head>
   <body>
     <div id="my-app">
-      <button @click="toggleColor">clique</button>
-
-      <p v-bind:class="[funcToggle, toggle?'':'bordure' ,'bord-raduis']"></p>
+    
+       <p :style="{color:'red'}">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, vel?</p>
+       <p :style="{color:'blue', backgroundColor:'pink'}">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, vel?</p>
+       <p :style="myStyle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit, vel?</p>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -35,21 +36,20 @@
       new Vue({
         el: '#my-app',
         data: {
-          toggle: true,
+            color:'blue',
+            backgroundColor:'pink',
+            width:200
+           
         },
-        methods: {
-          toggleColor: function () {
-            console.log('toggle color');
-            this.toggle = !this.toggle;
-          },
-        },
+       
         computed: {
-          funcToggle: function () {
+           myStyle:function(){
             return {
-              red:this.toggle,
-              box:true,
-            };
-          },
+                color:this.color,
+                backgroundColor:this.backgroundColor,
+                width:this.width+'px'
+            }
+           }
         },
       });
     </script>
