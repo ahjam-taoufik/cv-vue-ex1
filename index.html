@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="my-app1">
-       <button-counter v-on:increment-emet="count1"></button-counter>
+       <button-counter v-on:click.native="clicked" v-on:increment-emet="count1"></button-counter>
        <button-counter v-on:increment-emet="count1"></button-counter>
        <p>{{count}} </p>
     </div>
@@ -44,6 +44,9 @@
             }else{
               this.count++
             }
+          },
+          clicked:function(){
+            alert('salam')
           }
         }
        
