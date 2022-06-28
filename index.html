@@ -10,7 +10,10 @@
     <div id="my-app1">
       <button v-on:click="compActive='comp1'">render comp1</button>
       <button v-on:click="compActive='comp2'">render comp2</button>
-       <component :is="compActive"></component>
+      
+       <keep-alive>
+         <component :is="compActive"></component>
+        </keep-alive>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
