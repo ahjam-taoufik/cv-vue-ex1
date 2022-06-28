@@ -8,32 +8,40 @@
   </head>
   <body>
     <div id="my-app1">
-      <p> {{user}}</p> 
-      <button @click="addNew">add</button>
+       <button-counter v-on:increment-emet="count1"></button-counter>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
-      new Vue({
-        'el':'#my-app1',
-        data(){
-          return{
-            user:{
-              name:'taoufik'
+        Vue.component('button-counter', {
+           template:'<button @click="increment()" >{{counter}}</button>',
+           data(){
+              return{
+                  counter:0
+              }
+           },
+           methods:{
+            increment:function(){
+               this.counter++;
+               this.$emit("increment-emet")
             }
-          }
+           }
+        })
+
+      new Vue({
+        el: '#my-app1',
+        data(){
+           return{
+            count:0
+           }
         },
-        methods:{
-          addNew:function(){
-         
-            Vue.set(this.user,'age',10)
+        methods: {
+          count1:function(){
+              this.count++
           }
-
         }
-
-      })
-
-   
+       
+      });
     </script>
   </body>
 </html>
