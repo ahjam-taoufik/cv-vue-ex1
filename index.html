@@ -8,33 +8,32 @@
   </head>
   <body>
     <div id="my-app1">
-      <h2>{{txt}}</h2>
-      <mon-component></mon-component>
-      <mon-component></mon-component>
+      <p> {{user}}</p> 
+      <button @click="addNew">add</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
-      Vue.component('mon-component', {
-        template: `<p>taoufik ahjam {{nom}} <button
-                    v-on:click="func">change</button> </p>`,
-        data: function () {
-          return { nom: true };
+      new Vue({
+        'el':'#my-app1',
+        data(){
+          return{
+            user:{
+              name:'taoufik'
+            }
+          }
         },
         methods:{
-            func:function(){
-                this.nom=!this.nom
-            }
+          addNew:function(){
+         
+            Vue.set(this.user,'age',10)
+          }
+
         }
-      });
 
+      })
 
-      const ins1 = new Vue({
-        el: '#my-app1',
-        data: {
-          txt: 'salam alikoum depuis ins1',
-        },
-      });
+   
     </script>
   </body>
 </html>
