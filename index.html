@@ -8,16 +8,22 @@
   </head>
   <body>
     <div id="my-app1">
-      <p>{{name | toUpper}}</p>
+      <p>{{firstName | toLower }}</p>
+      <p>{{secondName | toUpper}}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
+      Vue.filter('toLower',function(value){
+        return value.toLowerCase();
+      })
+
       new Vue({
         el: '#my-app1',
         data() {
           return {
-            name: 'taoufik',
+            firstName:'AHJAM',
+            secondName: 'taoufik',
           };
         },
         filters: {
