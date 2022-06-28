@@ -8,33 +8,23 @@
   </head>
   <body>
     <div id="my-app1">
-      <button v-on:click="compActive='comp1'">render comp1</button>
-      <button v-on:click="compActive='comp2'">render comp2</button>
-      
-       <keep-alive>
-         <component :is="compActive"></component>
-        </keep-alive>
+      <p>{{name | toUpper}}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
-        Vue.component('comp1', {
-           template:'<div>comp1</div>',
-        })
-        Vue.component('comp2', {
-           template:'<div>comp2</div>',
-        })
-
       new Vue({
         el: '#my-app1',
-        data(){
-          return{
-            compActive:''
-          }
-        }
-        
-     
-       
+        data() {
+          return {
+            name: 'taoufik',
+          };
+        },
+        filters: {
+          toUpper: function (value) {
+            return value.toUpperCase()
+          },
+        },
       });
     </script>
   </body>
