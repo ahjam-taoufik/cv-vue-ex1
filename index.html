@@ -8,47 +8,29 @@
   </head>
   <body>
     <div id="my-app1">
-       <button-counter v-on:click.native="clicked" v-on:increment-emet="count1"></button-counter>
-       <button-counter v-on:increment-emet="count1"></button-counter>
-       <p>{{count}} </p>
+      <button v-on:click="compActive='comp1'">render comp1</button>
+      <button v-on:click="compActive='comp2'">render comp2</button>
+       <component :is="compActive"></component>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
-        Vue.component('button-counter', {
-           template:'<button @click="increment()" >{{counter}}</button>',
-           data(){
-              return{
-                  counter:0
-              }
-           },
-           methods:{
-            increment:function(){
-               this.counter++;
-               this.$emit("increment-emet",this.counter)
-            }
-           }
+        Vue.component('comp1', {
+           template:'<div>comp1</div>',
+        })
+        Vue.component('comp2', {
+           template:'<div>comp2</div>',
         })
 
       new Vue({
         el: '#my-app1',
         data(){
-           return{
-            count:0
-           }
-        },
-        methods: {
-          count1:function(val){
-            if(val){
-              this.count+=val
-            }else{
-              this.count++
-            }
-          },
-          clicked:function(){
-            alert('salam')
+          return{
+            compActive:''
           }
         }
+        
+     
        
       });
     </script>
